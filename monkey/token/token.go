@@ -19,8 +19,15 @@ const (
 	INT   = "INT"   // 1231252
 
 	// Operators
-	ASSIGN = "="
-	PLUS   = "+"
+	ASSIGN   = "="
+	PLUS     = "+"
+	MINUS    = "-"
+	BANG     = "!"
+	SLASH    = "/"
+	ASTERISK = "*"
+
+	LT = "<"
+	GT = ">"
 
 	// Delimiters
 	COMMA     = ","
@@ -41,7 +48,8 @@ var keywords = map[string]TokenType{
 	"let": LET,
 }
 
-// LookupIdent checks if the identifier is one of our keywords and returns the type if so. If not, it returns the IDENT type.
+// LookupIdent checks if the identifier is one of our keywords and returns the
+// type if so. If not, it returns the IDENT type.
 func LookupIdent(ident string) TokenType {
 	if tok, ok := keywords[ident]; ok {
 		return tok
